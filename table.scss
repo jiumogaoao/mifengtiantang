@@ -1,0 +1,242 @@
+.table {
+	    width: 100%;
+	    max-width: 100%;
+	    margin-bottom: 1rem;
+	    background-color: transparent;
+	}
+	.table thead th {
+	    border: none;
+	    background-color: #f5f5f5;
+	    font-size: 14px;
+	    height: 51px;
+	    line-height: 51px;
+	    padding-top: 0;
+	    padding-bottom: 0;
+	    font-weight: normal;
+	}
+	.bonded_area {
+    height: 64px;
+	}
+	.table tbody td {
+	    height: 60px;
+	    line-height: 60px;
+	    border-bottom: 1px solid #f5f5f5;
+	    padding-top: 0;
+	    padding-bottom: 0;
+	}
+	.hot-tag {
+	    float: right;
+	    height: 60px;
+	    padding-top: 20px;
+	}
+	.hot-tag span {
+	    width: 60px;
+	    height: 24px;
+	    line-height: 24px;
+	    text-align: center;
+	    border: 1px solid #ff69b0;
+	    border-radius: 24px;
+	    font-size: 14px;
+	    color: #ff69b0;
+	    display: block;
+	    float: left;
+	    margin-right: 10px;
+	}
+	.table tbody tr.item .inner {
+		padding-top: 15px;
+	}
+	.item-pic {
+	    width: 138px;
+	    height: 138px;
+	    border: 1px solid #f0e9de;
+	    float: left;
+	}
+	.item-pic-img{
+		width: 138px;
+		height: 138px;
+	}
+	.item-info {
+	    width: 260px;
+	    height: 140px;
+	    float: left;
+	    padding-top: 19px;
+	    margin-left: 18px;
+	}
+	.item-info .item-basic-info .item-title {
+	    color: #333;
+	    font-size: 16px;
+	    line-height: 24px;
+	    display: block;
+	}
+	.item-info .item-basic-info .item-props {
+	    margin-top: 22px;
+	}
+	.item-info .item-basic-info .item-props .sku-line {
+	    line-height: 14px;
+	    font-size: 14px;
+	    color: #808080;
+	    margin-bottom: 0px;
+	}
+	.retail-price {
+		font-size: 14px;
+		line-height: 14px;
+		color: #37b0c9;
+		font-style: normal;
+		display: block;
+		margin-top: 41px;
+		margin-bottom: 13px;
+	}
+	.taxes-price {
+	    font-size: 14px;
+	    line-height: 14px;
+	    color: #808080;
+	    font-style: normal;
+	    display: block;
+	}
+	.countButtom {
+	    margin-top: 54px;
+		display: flex;
+	}
+	.countSub{
+		width:40px;
+		height:30px;
+		border:1px solid #6c757d;
+		color:#6c757d;
+		line-height: 30px;
+		text-align: center;
+		border-radius: 6px 0 0 6px;
+	}
+	.countAdd{
+		width:40px;
+		height:30px;
+		border:1px solid #6c757d;
+		color:#6c757d;
+		line-height: 30px;
+		text-align: center;
+		border-radius: 0 6px 6px 0;
+	}
+	.countInput{
+		padding: 0px;
+		max-width: 38px !important;
+		height: 30px;
+		text-align: center;
+		border-top: 1px solid #bbb;
+		border-bottom: 1px solid #bbb;
+	}
+	.input-group {
+	    position: relative;
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    -ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	    -webkit-box-align: stretch;
+	    -ms-flex-align: stretch;
+	    align-items: stretch;
+	    width: 100%;
+	}
+	.countButtom .input-group-prepend, .countButtom .input-group-append {
+	    width: 40px;
+	    height: 30px;
+	}
+	.countButtom .input-group .form-control {
+	    padding: 0px;
+	    max-width: 38px !important;
+	    height: 30px;
+	}
+	.sum-price {
+	    font-size: 16px;
+	    line-height: 16px;
+	    color: #333333;
+	    font-style: normal;
+	    display: block;
+	    margin-top: 62px;
+	}
+	.inner a.del {
+	    display: block;
+	    font-size: 14px;
+	    line-height: 14px;
+	    color: #008ab0;
+	    cursor: pointer;
+	    margin-top: 42px;
+	}
+	.inner a.collection {
+	    display: block;
+	    font-size: 14px;
+	    line-height: 14px;
+	    color: #333333;
+	    cursor: pointer;
+	    margin-top: 18px;
+	}
+	.float-bar-holder {
+	    background-color: #f7f7f7;
+	}
+	.table .float-bar-holder td {
+	    line-height: 48px;
+	    height: 100px;
+	    font-size: 14px;
+	    color: #333333;
+	    padding-left: 16px;
+	    padding-right: 30px;
+	}
+	.cbx {
+	    -webkit-user-select: none;
+	    user-select: none;
+	    cursor: pointer;
+	    padding: 6px 8px;
+	    border-radius: 6px;
+	    overflow: hidden;
+	    transition: all 0.2s ease;
+	}
+	.cbx span {
+	    float: left;
+	    vertical-align: middle;
+	    transform: translate3d(0, 0, 0);
+	}
+	.cbx span:first-child {
+	    position: relative;
+	    width: 18px;
+	    height: 18px;
+	    border-radius: 4px;
+	    transform: scale(1);
+	    border: 2px solid #c8ccd4;
+	    transition: all 0.2s ease;
+	}
+	.inp-cbx:checked + .cbx span:first-child {
+	    background: #37b0c9;
+	    border-color: #37b0c9;
+	    animation: wave 0.4s ease;
+	}
+	.operations {
+	    float: left;
+	    width: 900px;
+	}
+	.btn-area {
+	    float: right;
+	}
+	.operations .fleft {
+	    float: left;
+	    width: 260px;
+	    height: 50px;
+	}
+	.operations .fright {
+	    float: right;
+	    width: 400px;
+	    height: 50px;
+	}
+	.submit-btn {
+	    width: 140px;
+	    height: 50px;
+	    line-height: 50px;
+	    font-size: 16px;
+	    text-align: center;
+	    color: #ffffff;
+	    background-color: #008ab0;
+	    display: block;
+	    border-radius: 25px;
+	}
+	.checkBoxLabel{
+		display: flex;
+		align-items: center;
+		padding: 10px;
+	}

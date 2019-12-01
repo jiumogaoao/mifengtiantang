@@ -1,0 +1,55 @@
+@font-face {
+	font-family: uniicons;
+	font-weight: normal;
+	font-style: normal;
+	src: url('./static/uni.ttf') format('truetype');
+}
+/*通用 */
+/*每个页面公共css */
+	view,
+	scroll-view,
+	swiper,
+	swiper-item,
+	cover-view,
+	cover-image,
+	icon,
+	text,
+	rich-text,
+	progress,
+	button,
+	checkbox,
+	form,
+	input,
+	label,
+	radio,
+	slider,
+	switch,
+	textarea,
+	navigator,
+	audio,
+	camera,
+	image,
+	video {
+		line-height: 1;
+		box-sizing: border-box;
+		flex-shrink: 0;
+	}
+view{
+	font-family:"Lantinghei SC",Verlag,PingFangSC-Light;
+	color:#333;
+}
+progress, checkbox-group{
+	width: 100%;
+}
+form {
+	width: 100%;
+}
+body{
+	overflow: hidden;
+}
+.destop{
+	background-color: #fff;
+}
+.destop .content{
+	overflow: auto;
+}

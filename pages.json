@@ -1,0 +1,24 @@
+{
+    "pages": [
+        {
+            "path" : "pages/index/index",
+            "style": {
+            	"navigationStyle": "custom",
+            	"navigationBarTitleText": "蜜蜂天堂"
+            }
+        }
+       
+    ],
+    "subPackages": [],
+    "globalStyle": {
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "蜜蜂天堂",
+        "navigationBarBackgroundColor": "#007AFF",
+        "backgroundColor": "#F8F8F8",
+        "backgroundColorTop": "#F4F5F6",
+        "backgroundColorBottom": "#F4F5F6",
+        "app-plus": {
+          "animationType": "pop-in"
+        }
+    }
+}
