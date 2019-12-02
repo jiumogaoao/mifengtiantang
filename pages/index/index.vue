@@ -22,7 +22,7 @@
 							<view class="titleL">蜜蜂天堂最新版</view>
 							<view class="titleL">汇聚主流平台优惠券</view>
 							<view class="titleL">让你不仅省钱，还赚钱</view>
-							<image class="qrCode" src="/static/二维码@2x2.png"></image>
+							<image class="qrCode" src="/static/qrcode@2x2.png"></image>
 							<view class="titleL">每天都是双十一</view>
 							<view class="titleL">扫码下载安装</view>
 							<view class="titleL">邀请码：224422</view>
@@ -32,22 +32,22 @@
 								<view class="button" style="background-color: #FBB03B;">下载APP</view>
 							</view>
 						</view>
-						<image class="picL" src="/static/home%20拷贝%202@2x.png"></image>
+						<image class="picL" src="/static/home@2x.png"></image>
 					</view>
 				</view>
 				<view class="frameL frame2">
 					<view class="frameM frameM1">
-						<image class="picS" src="/static/火箭ICON@2x.png"></image>
+						<image class="picS" src="/static/huojianICON@2x.png"></image>
 						<view class="titleM">蜜蜂天堂APP的诞生</view>
 						<view class="text">2017年3月项目策划团队筹建，2017年5月测试版APP上线，2017年8月正式版上线，2018年2月1日。我们上线2.0全新版本。我们不断优化用户的购物体验，不忘初心，砥砺前行</view>
 					</view>
 					<view class="frameM frameM2">
-						<image class="picS" src="/static/会员ICON@2x.png"></image>
+						<image class="picS" src="/static/huiyuanICON@2x.png"></image>
 						<view class="titleM">蜜蜂天堂APP的优势</view>
 						<view class="text">2017年3月项目策划团队筹建，2017年5月测试版APP上线，2017年8月正式版上线，2018年2月1日。我们上线2.0全新版本。我们不断优化用户的购物体验，不忘初心，砥砺前行</view>
 					</view>
 					<view class="frameM frameM3">
-						<image class="picS" src="/static/会员积分ICON@2x.png"></image>
+						<image class="picS" src="/static/jifengICON@2x.png"></image>
 						<view class="titleM">蜜蜂天堂APP的未来</view>
 						<view class="text">2017年3月项目策划团队筹建，2017年5月测试版APP上线，2017年8月正式版上线，2018年2月1日。我们上线2.0全新版本。我们不断优化用户的购物体验，不忘初心，砥砺前行</view>
 					</view>
@@ -58,15 +58,15 @@
 							<view class="titleL">蜜蜂天堂注册流程</view>
 							<view class="text">花生日记通过邀请注册，扫码确定关系终身不变，比亲妈还亲。</view>
 							<view class="point">
-								<image class="picXS" src="/static/网页ICON@2x.png"></image>
+								<image class="picXS" src="/static/wangyeICON@2x.png"></image>
 								<view class="text">点击网页下载链接，下载注册花生日记，填写邀请码224422</view>
 							</view>
 							<view class="point">
-								<image class="picXS" src="/static/笔编辑ICON@2x.png"></image>
+								<image class="picXS" src="/static/bibianjiICON@2x.png"></image>
 								<view class="text">登陆后.扫码添加微信客服，或者加alibabashuyao.回复手机后四位</view>
 							</view>
 							<view class="point">
-								<image class="picXS" src="/static/警报提示ICON@2x.png"></image>
+								<image class="picXS" src="/static/jingbaoICON@2x.png"></image>
 								<view class="text">小贴士：注册手机号也可以作为邀请码哦。</view>
 							</view>
 							<view class="buttonFrame">
@@ -74,12 +74,12 @@
 								<view class="button" style="background-color: #212121;">更多</view>
 							</view>
 						</view>
-						<image class="picL" src="/static/home%20拷贝%202@2x.png"></image>
+						<image class="picL" src="/static/home@2x.png"></image>
 					</view>
 				</view>
 				<view class="frameL frame4">
 					<view class="frameS">
-						<image class="picL" src="/static/home%20拷贝%202@2x.png"></image>
+						<image class="picL" src="/static/home@2x.png"></image>
 						<view class="left">
 							<view class="titleL">蜜蜂天堂4.6更新</view>
 							<view class="text">APP底部商学院栏目打造自学乐园，底部花粉社区有各种素材可以分 享，APP-我的-新手指引全部内容必看哦亲，切记添加APP专属客服，任何问题会有导师帮助您，专属客服位置点击APP首页右上角客服图标再点击右上角人工客服。或者APP-我的-我的工具-专属客服-人工客服</view>
@@ -98,15 +98,15 @@
 							<view class="titleL">如何分享赚钱</view>
 							<view class="text">在APP端，右下角我-分享好友中，我们有多重推广方式，以推广APP为主，用你的邀请码或者邀请链接下载注册的自动成为你团队小伙伴哦。当然，你也可以分享商品口令推荐你所喜欢的商品</view>
 							<view class="point">
-								<image class="picXS" src="/static/手机ICON@2x2.png"></image>
+								<image class="picXS" src="/static/shoujiICON@2x2.png"></image>
 								<view class="text">APP邀请推广</view>
 							</view>
 							<view class="point">
-								<image class="picXS" src="/static/商品管理ICON@2x.png"></image>
+								<image class="picXS" src="/static/shangpinICON@2x.png"></image>
 								<view class="text">商品分享推广</view>
 							</view>
 							<view class="point">
-								<image class="picXS" src="/static/分享ICON@2x.png"></image>
+								<image class="picXS" src="/static/fenxiangICON@2x.png"></image>
 								<view class="text">多种分享方式</view>
 							</view>
 							<view class="buttonFrame">
@@ -114,7 +114,7 @@
 								<view class="button" style="background-color: #212121;">更多</view>
 							</view>
 						</view>
-						<image class="picL" src="/static/home%20拷贝%202@2x.png"></image>
+						<image class="picL" src="/static/home@2x.png"></image>
 					</view>
 				</view>
 				<view class="frameL frame6">
@@ -131,17 +131,17 @@
 					<view class="frameS">
 						<view class="left">
 							<view class="list">
-								<image class="icon" src="/static/手机ICON@2x.png"></image>
+								<image class="icon" src="/static/shoujiICON@2x2.png"></image>
 								<view class="listFrame">
 									<view class="title">手机号码</view>
 									<view class="subTitle">18218218222</view>
 								</view>
 							</view>
 							<view class="list">
-								<image class="icon" src="/static/微信ICON@2x.png"></image>
+								<image class="icon" src="/static/weixinICON@2x.png"></image>
 								<view class="listFrame">
 									<view class="title">微信客服</view>
-									<image class="qrCode2" src="/static/二维码@2x.png"></image>
+									<image class="qrCode2" src="/static/qrcode@2x.png"></image>
 								</view>
 							</view>
 						</view>
@@ -233,7 +233,7 @@
 							font-family:Microsoft YaHei;
 							font-weight:400;
 							color:rgba(187,182,241,1);
-							margin-top: 29px;
+							margin-top: 16px;
 							margin-right: 49px;
 							position: relative;
 							.line{
