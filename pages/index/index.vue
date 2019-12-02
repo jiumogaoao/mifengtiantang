@@ -7,16 +7,16 @@
 				<view class="headFrame">
 					<image src="/static/logo@2x.png"></image>
 					<view class="navFrame">
-						<view class="nav">首页<view class="line"></view></view>
-						<view class="nav">关于蜜蜂天堂</view>
-						<view class="nav">简介</view>
-						<view class="nav">下载</view>
-						<view class="nav">联系我们</view>
+						<view class="nav" @click="scrollTo(0)">首页<view class="line"></view></view>
+						<view class="nav" @click="scrollTo(899)">关于蜜蜂天堂</view>
+						<view class="nav" @click="scrollTo(1344)">简介</view>
+						<view class="nav" @click="scrollTo(3266)">下载</view>
+						<view class="nav" @click="scrollTo(3622)">联系我们</view>
 					</view>
 				</view>
 			</view>
-			<view class="body">
-				<view class="frameL frame1">
+			<scroll-view class="body" scroll-y="true" @scroll="scroll" :scroll-top="scrollTop">
+				<view :class="{frameL:1,frame1:1,canShow:canShow(0)}">
 					<view class="frameS">
 						<view class="left">
 							<view class="titleL">蜜蜂天堂最新版</view>
@@ -29,13 +29,13 @@
 							<view class="text">感受极致的购物体验,注册下载后记得加</view>
 							<view class="buttonFrame">
 								<view class="button" style="background-color: #EC5298;">高速通道下载</view>
-								<view class="button" style="background-color: #FBB03B;">下载APP</view>
+								<view class="button" style="background-color: #FBB03B;" @click="scrollTo(3266)">下载APP</view>
 							</view>
 						</view>
 						<image class="picL" src="/static/home@2x.png"></image>
 					</view>
 				</view>
-				<view class="frameL frame2">
+				<view :class="{frameL:1,frame2:1,canShow:canShow(902)}">
 					<view class="frameM frameM1">
 						<image class="picS" src="/static/huojianICON@2x.png"></image>
 						<view class="titleM">蜜蜂天堂APP的诞生</view>
@@ -52,7 +52,7 @@
 						<view class="text">2017年3月项目策划团队筹建，2017年5月测试版APP上线，2017年8月正式版上线，2018年2月1日。我们上线2.0全新版本。我们不断优化用户的购物体验，不忘初心，砥砺前行</view>
 					</view>
 				</view>
-				<view class="frameL frame3">
+				<view :class="{frameL:1,frame3:1,canShow:canShow(1344)} ">
 					<view class="frameS">
 						<view class="left">
 							<view class="titleL">蜜蜂天堂注册流程</view>
@@ -71,13 +71,13 @@
 							</view>
 							<view class="buttonFrame">
 								<view class="button" style="background-color: #786DE3;">高速通道下载</view>
-								<view class="button" style="background-color: #212121;">更多</view>
+								<!-- <view class="button" style="background-color: #212121;">更多</view> -->
 							</view>
 						</view>
 						<image class="picL" src="/static/home@2x.png"></image>
 					</view>
 				</view>
-				<view class="frameL frame4">
+				<view :class="{frameL:1,frame4:1,canShow:canShow(1984)}">
 					<view class="frameS">
 						<image class="picL" src="/static/home@2x.png"></image>
 						<view class="left">
@@ -87,12 +87,12 @@
 							<view class="text">对接主流电商平台商品，花生日记可以搜索你想找的商品。觉得不过瘾？复制宝贝标题搜索试试</view>
 							<view class="buttonFrame">
 								<view class="button" style="background-color: #10CFBD;">高速通道下载</view>
-								<view class="button" style="background-color: #EC5298;">更多</view>
+								<!-- <view class="button" style="background-color: #EC5298;">更多</view> -->
 							</view>
 						</view>
 					</view>
 				</view>
-				<view class="frameL frame3 frame5">
+				<view :class="{frameL:1,frame3:1,frame5:1,canShow:canShow(2618)}">
 					<view class="frameS">
 						<view class="left">
 							<view class="titleL">如何分享赚钱</view>
@@ -111,13 +111,13 @@
 							</view>
 							<view class="buttonFrame">
 								<view class="button" style="background-color: #786DE3;">高速通道下载</view>
-								<view class="button" style="background-color: #212121;">更多</view>
+								<!-- <view class="button" style="background-color: #212121;">更多</view> -->
 							</view>
 						</view>
 						<image class="picL" src="/static/home@2x.png"></image>
 					</view>
 				</view>
-				<view class="frameL frame6">
+				<view :class="{frameL:1,frame6:1,canShow:canShow(3264)}">
 					<view class="titleL">快来下载使用吧！</view>
 					<view class="text">高速下载通道下载请点击</view>
 					<view class="buttonFrame">
@@ -125,7 +125,7 @@
 						<view class="button" style="background-color: #FBB03B;">苹果 APP STORE</view>
 					</view>
 				</view>
-				<view class="frameL frame7">
+				<view :class="{frameL:1,frame7:1,canShow:canShow(3623)} ">
 					<view class="titleL">联系我们</view>
 					<view class="text">任何使用问题，团队建设问题，运营商如何加入问题，可以咨询我们客服微信：alibabashuyao QQ:254004468</view>
 					<view class="frameS">
@@ -166,7 +166,7 @@
 					<view class="text">冀ICP备17029919号-1 冀公网安备 13010402001538号</view>
 					<view class="text" style="margin-top: 30px;">© Copyright 2017 @ hsrjapp | all rights reserved.</view>
 				</view>
-			</view>
+			</scroll-view>
 		</view>
 		</block>
 		<!-- #endif -->
@@ -187,16 +187,28 @@
 		},
 		data() {
 			return {
-				
+				scrollTop:0,
+				scrollTopNow:0
 			};
 		},
 		methods:{
-			follow(id){
-				
+			scroll(e){
+				console.log(e.detail.scrollTop)
+				this.scrollTopNow = e.detail.scrollTop
+			},
+			scrollTo(num){
+				this.scrollTop = num;
+			},
+			canShow(num){
+				if(num < this.scrollTopNow){
+					return true;
+				}else{
+					return false;
+				}
 			}
 		},
 		computed:{
-
+			
 		}
 	}
 </script>
@@ -252,10 +264,11 @@
 				flex-grow: 1;
 				flex-shrink: 1;
 				width: 100%;
-				overflow: auto;
+				overflow: hidden;
 				.frameL{
 					width: 100%;
 					.titleL{
+						transition: width 1s;
 						font-size:30px;
 						font-family:Microsoft YaHei;
 						font-weight:bold;
@@ -268,6 +281,7 @@
 						display: flex;
 						justify-content: space-between;
 						.picL{
+							transition: width 1s;
 							width: 339px;
 							height: 424px;
 						}
@@ -275,6 +289,7 @@
 					.buttonFrame{
 						display: flex;
 						.button{
+							transition: width 1s;
 							padding: 22px 42px;
 							color: #fff;
 							font-size:16px;
@@ -285,6 +300,7 @@
 						}
 					}
 					.text{
+						transition: width 1s;
 						font-size:14px;
 						font-family:Microsoft YaHei;
 						font-weight:400;
@@ -297,23 +313,27 @@
 					.left{
 						margin-top: 165px;
 						.qrCode{
+							transition: width 1s;
 							width: 177px;
 							height: 173px;
 							margin-top: 15px;
 							margin-bottom: 19px;
 						}
 						.text{
+							transition: width 1s;
 							margin-top: 21px;
 							color: #fff;
 						}
 						.buttonFrame{
 							margin-top: 25px;
 							.button{
+								transition: width 1s;
 								margin-right: 10px;
 							}
 						}
 					}
 					.picL{
+						transition: width 1s;
 						margin-top: 215px;
 					}
 				}
@@ -325,11 +345,13 @@
 						flex-shrink: 1;
 						padding: 72px 27px;
 						.picS{
+							transition: width 1s;
 							height: 90px;
 							width:90px;
 							margin: auto;
 						}
 						.titleM{
+							transition: width 1s;
 							font-size:24px;
 							font-family:Microsoft YaHei;
 							font-weight:bold;
@@ -338,6 +360,7 @@
 							margin-top: 32px;
 						}
 						.text{
+							transition: width 1s;
 							color: #F4F5F9;
 							margin-top: 20px;
 						}
@@ -351,9 +374,11 @@
 					.frameM3{
 						background-color: #F4F5F9;
 						.titleM{
+							transition: width 1s;
 							color: rgba(49,49,49,1);
 						}
 						.text{
+							transition: width 1s;
 							color: rgba(102,102,102,1);
 						}
 					}
@@ -365,9 +390,11 @@
 						margin-top: 130px;
 						width:473px;
 						.titleL{
+							transition: width 1s;
 							color: #313131 !important;
 						}
 						.text{
+							transition: width 1s;
 							color:#666666;
 							margin-top: 29px;
 							margin-bottom: 53px;
@@ -377,22 +404,26 @@
 							margin-bottom: 15px;
 							align-items: center;
 							.picXS{
+								transition: width 1s;
 								width: 30px;
 								height: 30px;
 								margin-right: 23px;
 							}
 							.text{
+								transition: width 1s;
 								margin: 0;
 							}
 						}
 						.buttonFrame{
 							margin-top: 67px;
 							.button{
+								transition: width 1s;
 								margin-right: 10px;
 							}
 						}
 					}
 					.picL{
+						transition: width 1s;
 						margin-top: 110px;
 					}
 				}
@@ -400,18 +431,21 @@
 					height: 640px;
 					background-color: #FBB03B;
 					.picL{
+						transition: width 1s;
 						margin-top: 108px;
 					}
 					.left{
 						margin-top: 107px;
 						width:519px;
 						.text{
+							transition: width 1s;
 							color: #fff;
 							margin-top: 29px;
 						}
 						.buttonFrame{
 							margin-top: 64px;
 							.button{
+								transition: width 1s;
 								margin-right: 10px;
 							}
 						}
@@ -420,9 +454,11 @@
 				.frame3.frame5{
 					background-color: #10CFBD;
 					.titleL{
+						transition: width 1s;
 						color: #fff !important;
 					}
 					.text{
+						transition: width 1s;
 						color:#fff !important;
 					}
 				}
@@ -430,11 +466,13 @@
 					height: 360px;
 					background-color: #786DE4;
 					.titleL{
+						transition: width 1s;
 						text-align: center;
 						padding-top: 96px;
 						color: #fff;
 					}
 					.text{
+						transition: width 1s;
 						text-align: center;
 						margin-top: 20px;
 						color: #fff;
@@ -445,6 +483,7 @@
 						width: 450px;
 						justify-content: space-between;
 						.button{
+							transition: width 1s;
 							margin: 0;
 						}
 					}
@@ -453,11 +492,13 @@
 					height: 800px;
 					background-color: #fff;
 					.titleL{
+						transition: width 1s;
 						text-align: center;
 						padding-top: 88px;
 						color: #313131;
 					}
 					.text{
+						transition: width 1s;
 						text-align: center;
 						margin-top: 20px;
 						color: #666666;
@@ -468,11 +509,13 @@
 							display: flex;
 							margin-bottom: 40px;
 							.icon{
+								transition: width 1s;
 								width:60px;
 								height:60px;
 								margin-right: 19px;
 							}
 							.title{
+								transition: width 1s;
 								font-size:20px;
 								font-family:Microsoft YaHei;
 								font-weight:400;
@@ -480,12 +523,14 @@
 								margin-bottom: 14px;
 							}
 							.subTitle{
+								transition: width 1s;
 								font-size:14px;
 								font-family:Microsoft YaHei;
 								font-weight:400;
 								color:rgba(102,102,102,1);
 							}
 							.qrCode2{
+								transition: width 1s;
 								width:201px;
 								height:224px;
 							}
@@ -495,6 +540,7 @@
 						margin-top: 89px;
 						width:560px;
 						.label{
+							transition: width 1s;
 							position: absolute;
 							top:19px;
 							left: 19px;
@@ -548,6 +594,7 @@
 					justify-content: center;
 					background-color: #212121;
 					.text{
+						transition: width 1s;
 						font-size:16px;
 						font-family:Microsoft YaHei;
 						font-weight:400;
