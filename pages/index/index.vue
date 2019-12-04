@@ -7,16 +7,16 @@
 				<view class="headFrame">
 					<image src="/static/logo@2x.png"></image>
 					<view class="navFrame">
-						<view class="nav" @click="scrollTo(0)">首页<view class="line"></view></view>
-						<view class="nav" @click="scrollTo(899)">关于蜜蜂天堂</view>
-						<view class="nav" @click="scrollTo(1344)">简介</view>
-						<view class="nav" @click="scrollTo(3266)">下载</view>
-						<view class="nav" @click="scrollTo(3622)">联系我们</view>
+						<view class="nav" @click="scrollTo(0)">首页<view class="line" v-if="scrollTopNow>=0 && scrollTopNow<899"></view></view>
+						<view class="nav" @click="scrollTo(899)">关于蜜蜂天堂<view class="line" v-if="scrollTopNow>=899 && scrollTopNow<1344"></view></view>
+						<view class="nav" @click="scrollTo(1344)">简介<view class="line" v-if="scrollTopNow>=1344 && scrollTopNow<3266"></view></view>
+						<view class="nav" @click="scrollTo(3266)">下载<view class="line" v-if="scrollTopNow>=3266 && scrollTopNow<3622"></view></view>
+						<view class="nav" @click="scrollTo(3622)">联系我们<view class="line" v-if="scrollTopNow>=3622"></view></view>
 					</view>
 				</view>
 			</view>
-			<scroll-view class="body" scroll-y="true" @scroll="scroll" :scroll-top="scrollTop">
-				<view :class="{frameL:1,frame1:1,canShow:canShow(0)}">
+			<div class="body" scroll-y="true" :scroll-top="scrollTop" id="scroll1">
+				<view :class="{frameL:1,frame1:1,canShow:indexShow}">
 					<view class="frameS">
 						<view class="left">
 							<view class="titleL">蜜蜂天堂最新版</view>
@@ -35,24 +35,24 @@
 						<image class="picL" src="/static/home@2x.png"></image>
 					</view>
 				</view>
-				<view :class="{frameL:1,frame2:1,canShow:canShow(902)}">
+				<view :class="{frameL:1,frame2:1,canShow:canShow(627)}">
 					<view class="frameM frameM1">
 						<image class="picS" src="/static/huojianICON@2x.png"></image>
 						<view class="titleM">蜜蜂天堂APP的诞生</view>
-						<view class="text">2017年3月项目策划团队筹建，2017年5月测试版APP上线，2017年8月正式版上线，2018年2月1日。我们上线2.0全新版本。我们不断优化用户的购物体验，不忘初心，砥砺前行</view>
+						<view class="text">2019年3月项目策划团队筹建，2019年11月测试版APP上线，2017年8月正式版上线，我们将不断优化用户的购物体验，为大家创造额外的被动可持续收入，资产永续，不再是一个名词！而是拿得到的收益！</view>
 					</view>
 					<view class="frameM frameM2">
 						<image class="picS" src="/static/huiyuanICON@2x.png"></image>
 						<view class="titleM">蜜蜂天堂APP的优势</view>
-						<view class="text">2017年3月项目策划团队筹建，2017年5月测试版APP上线，2017年8月正式版上线，2018年2月1日。我们上线2.0全新版本。我们不断优化用户的购物体验，不忘初心，砥砺前行</view>
+						<view class="text">2019年3月项目策划团队筹建，2019年11月测试版APP上线，2017年8月正式版上线，我们将不断优化用户的购物体验，为大家创造额外的被动可持续收入，资产永续，不再是一个名词！而是拿得到的收益！</view>
 					</view>
 					<view class="frameM frameM3">
 						<image class="picS" src="/static/jifengICON@2x.png"></image>
 						<view class="titleM">蜜蜂天堂APP的未来</view>
-						<view class="text">2017年3月项目策划团队筹建，2017年5月测试版APP上线，2017年8月正式版上线，2018年2月1日。我们上线2.0全新版本。我们不断优化用户的购物体验，不忘初心，砥砺前行</view>
+						<view class="text">蜜蜂天堂以用户体验为重点，打造社交新零售生态系统，让实体店商家、消费者、线上店铺等，一起实现多方共赢，为大家创造价值，欢迎宝妈、微商，线上线下商家、淘客加入我们的大家庭！共创美好的明天！</view>
 					</view>
 				</view>
-				<view :class="{frameL:1,frame3:1,canShow:canShow(1344)} ">
+				<view :class="{frameL:1,frame3:1,canShow:canShow(900)} ">
 					<view class="frameS">
 						<view class="left">
 							<view class="titleL">蜜蜂天堂注册流程</view>
@@ -77,14 +77,14 @@
 						<image class="picL" src="/static/home@2x.png"></image>
 					</view>
 				</view>
-				<view :class="{frameL:1,frame4:1,canShow:canShow(1984)}">
+				<view :class="{frameL:1,frame4:1,canShow:canShow(1600)}">
 					<view class="frameS">
 						<image class="picL" src="/static/home@2x.png"></image>
 						<view class="left">
-							<view class="titleL">蜜蜂天堂4.6更新</view>
-							<view class="text">APP底部商学院栏目打造自学乐园，底部花粉社区有各种素材可以分 享，APP-我的-新手指引全部内容必看哦亲，切记添加APP专属客服，任何问题会有导师帮助您，专属客服位置点击APP首页右上角客服图标再点击右上角人工客服。或者APP-我的-我的工具-专属客服-人工客服</view>
+							<view class="titleL">蜜蜂天堂核心优势</view>
+							<view class="text">APP底部商学院栏目打造自学乐园，底部社区有各种素材可以分享， 零门槛零风险：真正的0投资、0成本、0囤货、0发货； 全领域全覆盖：合作伙伴几乎涵盖所有领域知名电商； 超高购物返佣：秒杀同类平台，百万大额优惠券每日更新；</view>
 							<view class="text">对接主流电商平台商品，花生日记可以搜索你想找的商品。觉得不过瘾？复制宝贝标题搜索试试</view>
-							<view class="text">对接主流电商平台商品，花生日记可以搜索你想找的商品。觉得不过瘾？复制宝贝标题搜索试试</view>
+							<view class="text">使用搜索也有小技巧，觉得搜冰箱搜不出来，只能在淘宝APP复制标题反向查找？搜索电冰箱试试，嘿嘿，我们将在不断地版本更新中进行优化的亲</view>
 							<view class="buttonFrame">
 								<view class="button" style="background-color: #10CFBD;">高速通道下载</view>
 								<!-- <view class="button" style="background-color: #EC5298;">更多</view> -->
@@ -92,7 +92,7 @@
 						</view>
 					</view>
 				</view>
-				<view :class="{frameL:1,frame3:1,frame5:1,canShow:canShow(2618)}">
+				<view :class="{frameL:1,frame3:1,frame5:1,canShow:canShow(2200)}">
 					<view class="frameS">
 						<view class="left">
 							<view class="titleL">如何分享赚钱</view>
@@ -117,21 +117,23 @@
 						<image class="picL" src="/static/home@2x.png"></image>
 					</view>
 				</view>
-				<view :class="{frameL:1,frame6:1,canShow:canShow(3264)}">
+				<view :class="{frameL:1,frame6:1,canShow:canShow(2927)}">
 					<view class="titleL">快来下载使用吧！</view>
 					<view class="text">高速下载通道下载请点击</view>
 					<view class="buttonFrame">
-						<view class="button" style="background-color: #EC5298;">安卓 GOOGLE PLAY</view>
-						<view class="button" style="background-color: #FBB03B;">苹果 APP STORE</view>
+						<view class="button" style="background-color: #EC5298;">
+							<image class="icon" src="/static/ANZHUO@2x.png"></image><text>安卓 GOOGLE PLAY</text>
+						</view>
+						<view class="button" style="background-color: #FBB03B;"><image class="icon" src="/static/IOS@2x.png"></image><text>苹果 APP STORE</text></view>
 					</view>
 				</view>
-				<view :class="{frameL:1,frame7:1,canShow:canShow(3623)} ">
+				<view :class="{frameL:1,frame7:1,canShow:canShow(3287)} ">
 					<view class="titleL">联系我们</view>
 					<view class="text">任何使用问题，团队建设问题，运营商如何加入问题，可以咨询我们客服微信：alibabashuyao QQ:254004468</view>
 					<view class="frameS">
-						<view class="left">
+<!-- 						<view class="left">
 							<view class="list">
-								<image class="icon" src="/static/shoujiICON@2x2.png"></image>
+								<image class="icon" src="/static/shoujiICON@2x.png"></image>
 								<view class="listFrame">
 									<view class="title">手机号码</view>
 									<view class="subTitle">18218218222</view>
@@ -141,24 +143,13 @@
 								<image class="icon" src="/static/weixinICON@2x.png"></image>
 								<view class="listFrame">
 									<view class="title">微信客服</view>
-									<image class="qrCode2" src="/static/qrcode@2x.png"></image>
+									<view class="subTitle">18218218222</view>
 								</view>
 							</view>
-						</view>
+						</view> -->
 						<view class="right">
-							<view class="inputFrame">
-								<view class="label">你的名字<text class="red">*</text></view>
-								<input/>
-							</view>
-							<view class="inputFrame">
-								<view class="label">联系方式<text class="red">*</text></view>
-								<input/>
-							</view>
-							<view class="inputFrame">
-								<view class="label">您的意见<text class="red">*</text></view>
-								<textarea/>
-							</view>
-							<view class="button">发送</view>
+							<image src="/static/qrCode3@2x.png"></image>
+							<view class="subTitle">微信扫码关注公众号获取最新资讯</view>
 						</view>
 					</view>
 				</view>
@@ -166,7 +157,7 @@
 					<view class="text">冀ICP备17029919号-1 冀公网安备 13010402001538号</view>
 					<view class="text" style="margin-top: 30px;">© Copyright 2017 @ hsrjapp | all rights reserved.</view>
 				</view>
-			</scroll-view>
+			</div>
 		</view>
 		</block>
 		<!-- #endif -->
@@ -188,7 +179,9 @@
 		data() {
 			return {
 				scrollTop:0,
-				scrollTopNow:0
+				scrollTopNow:0,
+				indexShow:false,
+				showArray:{}
 			};
 		},
 		methods:{
@@ -200,7 +193,11 @@
 				this.scrollTop = num;
 			},
 			canShow(num){
+				if(this.showArray[num]){
+					return true;
+				}
 				if(num < this.scrollTopNow){
+					this.showArray[num]=true
 					return true;
 				}else{
 					return false;
@@ -209,6 +206,24 @@
 		},
 		computed:{
 			
+		},
+		onShow(){
+			let _this=this;
+			this.$nextTick(function(){
+				document.getElementById("scroll1").onscroll=function(e){
+					_this.scrollTopNow = e.target.scrollTop
+				}
+			})
+			
+			setTimeout(function(){
+				_this.indexShow = true
+			},300)
+		},
+		watch:{
+			scrollTop(val){
+				console.log(val)
+				document.getElementById("scroll1").scrollTop = val
+			}
 		}
 	}
 </script>
@@ -264,16 +279,17 @@
 				flex-grow: 1;
 				flex-shrink: 1;
 				width: 100%;
-				overflow: hidden;
+				overflow-y: auto;
+				overflow-x: hidden;
 				.frameL{
 					width: 100%;
 					.titleL{
-						transition: width 1s;
 						font-size:30px;
 						font-family:Microsoft YaHei;
 						font-weight:bold;
 						color:rgba(255,255,255,1);
 						line-height:42px;
+						opacity: 0;
 					}
 					.frameS{
 						width: $main-width;
@@ -281,15 +297,14 @@
 						display: flex;
 						justify-content: space-between;
 						.picL{
-							transition: width 1s;
 							width: 339px;
 							height: 424px;
+							opacity: 0;
 						}
 					}
 					.buttonFrame{
 						display: flex;
 						.button{
-							transition: width 1s;
 							padding: 22px 42px;
 							color: #fff;
 							font-size:16px;
@@ -297,44 +312,61 @@
 							font-weight:400;
 							color:rgba(255,255,255,1);
 							border-radius:10px;
+							opacity: 0;
 						}
 					}
 					.text{
-						transition: width 1s;
 						font-size:14px;
 						font-family:Microsoft YaHei;
 						font-weight:400;
 						line-height:24px;
+						opacity: 0;
 					}
 				}
 				.frame1{
 					background-color: rgba(120,109,227,1);
-					height: 900px;
+					height: 804px;
 					.left{
-						margin-top: 165px;
+						margin-top: 104px;
+						.titleL{
+							transition-duration: 0.6s;
+							transition-timing-function: linear;
+							transform:translate(100px,0);
+						}
 						.qrCode{
-							transition: width 1s;
+							transition-duration: 0.6s;
+							transition-timing-function: linear;
+							transform:translate(-100px,0);
 							width: 177px;
 							height: 173px;
 							margin-top: 15px;
 							margin-bottom: 19px;
+							opacity: 0;
 						}
 						.text{
-							transition: width 1s;
+							transition-duration: 0.6s;
+							transition-timing-function: linear;
 							margin-top: 21px;
 							color: #fff;
+							opacity: 0;
 						}
 						.buttonFrame{
 							margin-top: 25px;
 							.button{
-								transition: width 1s;
+								transition-duration: 0.6s;
+								transition-timing-function: linear;
+								transform:rotate(90deg);
 								margin-right: 10px;
+								opacity: 0;
 							}
 						}
 					}
 					.picL{
-						transition: width 1s;
-						margin-top: 215px;
+						transition-duration: 0.6s;
+						transition-timing-function: linear;
+						transform:translate(0,-100px);
+						margin-top: 175px;
+						opacity: 0;
 					}
 				}
 				.frame2{
@@ -345,24 +377,33 @@
 						flex-shrink: 1;
 						padding: 72px 27px;
 						.picS{
-							transition: width 1s;
+							transition-duration: 0.6s;
+							transition-timing-function: linear;
+							transform:rotate(180deg);
 							height: 90px;
 							width:90px;
 							margin: auto;
+							opacity: 0;
 						}
 						.titleM{
-							transition: width 1s;
+							transition-duration: 0.6s;
+							transition-timing-function: linear;
+							transform:scale(1.5,1.5);
 							font-size:24px;
 							font-family:Microsoft YaHei;
 							font-weight:bold;
 							color:rgba(255,255,255,1);
 							text-align: center;
 							margin-top: 32px;
+							opacity: 0;
 						}
 						.text{
-							transition: width 1s;
+							transition-duration: 0.6s;
+							transition-timing-function: linear;
+							transform:translate(0,-100px);
 							color: #F4F5F9;
 							margin-top: 20px;
+							opacity: 0;
 						}
 					}
 					.frameM1{
@@ -374,12 +415,16 @@
 					.frameM3{
 						background-color: #F4F5F9;
 						.titleM{
-							transition: width 1s;
+							transition-duration: 0.6s;
+							transition-timing-function: linear;
 							color: rgba(49,49,49,1);
+							opacity: 0;
 						}
 						.text{
-							transition: width 1s;
+							transition-duration: 0.6s;
+							transition-timing-function: linear;
 							color: rgba(102,102,102,1);
+							opacity: 0;
 						}
 					}
 				}
@@ -390,63 +435,95 @@
 						margin-top: 130px;
 						width:473px;
 						.titleL{
-							transition: width 1s;
+							transition-duration: 0.6s;
+							transition-timing-function: linear;
+							transform:translate(-100px,0);
 							color: #313131 !important;
+							opacity: 0;
 						}
 						.text{
-							transition: width 1s;
+							transition-duration: 0.6s;
+							transition-timing-function: linear;
+							transform:translate(100px,0);
 							color:#666666;
 							margin-top: 29px;
 							margin-bottom: 53px;
+							opacity: 0;
 						}
 						.point{
 							display: flex;
 							margin-bottom: 15px;
 							align-items: center;
 							.picXS{
-								transition: width 1s;
+								transition-duration: 0.6s;
+								transition-timing-function: linear;
+								transform:translate(-100px,0);
 								width: 30px;
 								height: 30px;
 								margin-right: 23px;
+								opacity: 0;
 							}
 							.text{
-								transition: width 1s;
+								transition-duration: 0.6s;
+								transition-timing-function: linear;
+								transform:translate(-100px,0);
 								margin: 0;
+								opacity: 0;
 							}
 						}
 						.buttonFrame{
 							margin-top: 67px;
 							.button{
-								transition: width 1s;
+								transition-duration: 0.6s;
+								transition-timing-function: linear;
+								transform:rotate(180deg);
 								margin-right: 10px;
+								opacity: 0;
 							}
 						}
 					}
 					.picL{
-						transition: width 1s;
+						transition-duration: 0.6s;
+						transition-timing-function: linear;
+						transform:translate(0,100px);
 						margin-top: 110px;
+						opacity: 0;
 					}
 				}
 				.frame4{
 					height: 640px;
 					background-color: #FBB03B;
 					.picL{
-						transition: width 1s;
+						transition-duration: 0.6s;
+						transition-timing-function: linear;
+						transform:rotate(480deg);
 						margin-top: 108px;
+						opacity: 0;
 					}
 					.left{
 						margin-top: 107px;
 						width:519px;
+						.titleL{
+							transition-duration: 0.6s;
+							transition-timing-function: linear;
+							transform:scale(1.5,1.5);
+						}
 						.text{
-							transition: width 1s;
+							transition-duration: 0.6s;
+							transition-timing-function: linear;
+							transform:translate(100px,0);
 							color: #fff;
 							margin-top: 29px;
+							opacity: 0;
 						}
 						.buttonFrame{
 							margin-top: 64px;
 							.button{
-								transition: width 1s;
+								transition-duration: 0.6s;
+								transition-timing-function: linear;
 								margin-right: 10px;
+								opacity: 0;
+								transform:translate(0,100px);
 							}
 						}
 						}
@@ -454,28 +531,38 @@
 				.frame3.frame5{
 					background-color: #10CFBD;
 					.titleL{
-						transition: width 1s;
+						transition-duration: 0.6s;
+						transition-timing-function: linear;
 						color: #fff !important;
+						opacity: 0;
 					}
 					.text{
-						transition: width 1s;
+						transition-duration: 0.6s;
+						transition-timing-function: linear;
 						color:#fff !important;
+						opacity: 0;
 					}
 				}
 				.frame6{
 					height: 360px;
 					background-color: #786DE4;
 					.titleL{
-						transition: width 1s;
+						transition-duration: 0.6s;
+						transition-timing-function: linear;
+						transform:translate(0,-100px);
 						text-align: center;
 						padding-top: 96px;
 						color: #fff;
+						opacity: 0;
 					}
 					.text{
-						transition: width 1s;
+						transition-duration: 0.6s;
+						transition-timing-function: linear;
+						transform:scale(1.5,1.5);
 						text-align: center;
 						margin-top: 20px;
 						color: #fff;
+						opacity: 0;
 					}
 					.buttonFrame{
 						margin: auto;
@@ -483,8 +570,28 @@
 						width: 450px;
 						justify-content: space-between;
 						.button{
-							transition: width 1s;
+							width: 220px;
+							height: 60px;
+							transition-duration: 0.6s;
+							transition-timing-function: linear;
+							transform:translate(0,100px);
+							display: flex;
+							padding: 0;
+							justify-content: center;
+							align-items: center;
 							margin: 0;
+							opacity: 0;
+							image{
+								width: 27px;
+								height:27px;
+								margin-right: 8px;
+							}
+							text{
+								font-size:14px;
+								font-family:Microsoft YaHei;
+								font-weight:400;
+								color:rgba(255,255,255,1);
+							}
 						}
 					}
 				}
@@ -492,98 +599,94 @@
 					height: 800px;
 					background-color: #fff;
 					.titleL{
-						transition: width 1s;
+						transition-duration: 0.6s;
+						transition-timing-function: linear;
+						transform:translate(0,100px);
 						text-align: center;
 						padding-top: 88px;
 						color: #313131;
+						opacity: 0;
 					}
 					.text{
-						transition: width 1s;
+						transition-duration: 0.6s;
+						transition-timing-function: linear;
+						transform:scale(1.5,1.5);
 						text-align: center;
 						margin-top: 20px;
 						color: #666666;
+						opacity: 0;
 					}
-					.left{
-						margin-top: 92px;
-						.list{
-							display: flex;
-							margin-bottom: 40px;
-							.icon{
-								transition: width 1s;
-								width:60px;
-								height:60px;
-								margin-right: 19px;
-							}
-							.title{
-								transition: width 1s;
-								font-size:20px;
-								font-family:Microsoft YaHei;
-								font-weight:400;
-								color:rgba(49,49,49,1);
-								margin-bottom: 14px;
-							}
-							.subTitle{
-								transition: width 1s;
-								font-size:14px;
-								font-family:Microsoft YaHei;
-								font-weight:400;
-								color:rgba(102,102,102,1);
-							}
-							.qrCode2{
-								transition: width 1s;
-								width:201px;
-								height:224px;
-							}
-						}
+					.frameS{
+						justify-content: center;
 					}
+					// .left{
+					// 	margin-top: 92px;
+					// 	margin-left: 60px;
+					// 	.list{
+					// 		display: flex;
+					// 		margin-bottom: 40px;
+					// 		.icon{
+					// 			transition-duration: 0.6s;
+					// 			transition-timing-function: linear;
+					// 			transform:translate(-100px,0);
+					// 			width:60px;
+					// 			height:60px;
+					// 			margin-right: 19px;
+					// 			opacity: 0;
+					// 		}
+					// 		.title{
+					// 			transition-duration: 0.6s;
+					// 			transition-timing-function: linear;
+					// 			transform:translate(-100px,0);
+					// 			font-size:20px;
+					// 			font-family:Microsoft YaHei;
+					// 			font-weight:400;
+					// 			color:rgba(49,49,49,1);
+					// 			margin-bottom: 14px;
+					// 			opacity: 0;
+					// 		}
+					// 		.subTitle{
+					// 			transition-duration: 0.6s;
+					// 			transition-timing-function: linear;
+					// 			transform:translate(-100px,0);
+					// 			font-size:14px;
+					// 			font-family:Microsoft YaHei;
+					// 			font-weight:400;
+					// 			color:rgba(102,102,102,1);
+					// 			opacity: 0;
+					// 		}
+					// 		.qrCode2{
+					// 			transition-duration: 0.6s;
+					// 			transition-timing-function: linear;
+					// 			transform:translate(-100px,0);
+					// 			width:201px;
+					// 			height:224px;
+					// 			opacity: 0;
+					// 		}
+					// 	}
+					// }
 					.right{
-						margin-top: 89px;
-						width:560px;
-						.label{
-							transition: width 1s;
-							position: absolute;
-							top:19px;
-							left: 19px;
-							font-size:12px;
+						margin-top: 47px;
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						image{
+							width:360px;
+							height:360px;
+						}
+						.subTitle{
+							font-size:20px;
 							font-family:Microsoft YaHei;
 							font-weight:400;
-							color:rgba(102,102,102,1);
-							.red{
-								color: #F91F1F;
-							}
+							color:rgba(49,49,49,1);
+							margin-top: 32px;
 						}
-						.inputFrame{
-							width:100%;
-							background:rgba(244,245,249,1);
-							border-radius:10px;
-							margin-bottom: 10px;
-							position: relative;
-							input{
-								width: 100%;
-								height: 70px;
-								text-indent: 90px;
-								padding: 10px;
-							}
-							textarea{
-								width: 100%;
-								height: 120px;
-								text-indent: 90px;
-								padding: 10px;
-							}
-						}
-						.button{
-							width:560px;
-							height:70px;
-							background:rgba(120,109,228,1);
-							border-radius:10px;
-							font-size:16px;
-							font-family:Microsoft YaHei;
-							font-weight:400;
-							color:rgba(255,255,255,1);
-							text-align: center;
-							align-items: center;
-							line-height: 70px;
-						}
+					}
+				}
+				.frameL.canShow{
+					.picL,.button,.label,.title,.icon,.text,.titleL,.picXS,.titleM,.picXS,.picS,.qrCode,.qrCode2,.subTitle{
+						transform:translate(0,0) rotate(0deg) scale(1,1) !important;
+						opacity: 1 !important;
 					}
 				}
 				.foot{
@@ -594,7 +697,6 @@
 					justify-content: center;
 					background-color: #212121;
 					.text{
-						transition: width 1s;
 						font-size:16px;
 						font-family:Microsoft YaHei;
 						font-weight:400;
