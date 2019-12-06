@@ -8,6 +8,21 @@
             }
         }
        
+        
+        ,{
+            "path" : "pages/regest/regest",
+            "style": {
+            	"navigationStyle": "custom",
+            	"navigationBarTitleText": "蜜蜂天堂"
+            }
+        }
+        ,{
+            "path" : "pages/download/download",
+            "style" : {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "蜜蜂天堂"
+			}
+        }
     ],
     "subPackages": [],
     "globalStyle": {

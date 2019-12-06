@@ -4,6 +4,12 @@
 	font-style: normal;
 	src: url('./static/uni.ttf') format('truetype');
 }
+@font-face {
+	font-family: ficon;
+	font-weight: normal;
+	font-style: normal;
+	src: url('./static/iconfont.ttf') format('truetype');
+}
 /*通用 */
 /*每个页面公共css */
 	view,
@@ -52,4 +58,7 @@ body{
 }
 .destop .content{
 	overflow: auto;
+}
+.ficon{
+	font-family: ficon !important;
 }
