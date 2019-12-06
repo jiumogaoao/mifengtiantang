@@ -3,18 +3,20 @@
 		<image class="bg" src="/static/shareBG.png"></image>
 		<view class="regestFrame">
 			<view class="title">手机注册</view>
-			<view class="code">邀请码<text>5D4F8T</text></view>
+			<view class="code">邀请码<text>{{id}}</text></view>
 			<view class="inputList">
 				<view class="inputPoint">
-					<input placeholder="请输入手机号"/>
+					<input placeholder="请输入手机号" v-model="phone"/>
 				</view>
 				<view class="inputPoint">
-					<input placeholder="请输入6-16位密码"/>
-					<image class="icon" src="/static/regestIcon0.png"></image>
+					<input placeholder="请输入6-16位密码" v-model="password" :password="!showPassword"/>
+					<image class="icon" src="/static/regestIcon1.png" v-if="showPassword" @click="togglePassword"></image>
+					<image class="icon" src="/static/regestIcon0.png" v-else @click="togglePassword"></image>
 				</view>
 				<view class="inputPoint">
-					<input placeholder="请输入验证码"/>
-					<view class="getCode">获取验证码</view>
+					<input placeholder="请输入验证码" v-model="code"/>
+					<view class="getCode" v-if="nextTime">{{nextTime}}秒后可重发</view>
+					<view class="getCode" @click="getCode" v-else>获取验证码</view>
 				</view>
 			</view>
 			<view class="dsc">
@@ -27,16 +29,45 @@
 </template>
 
 <script>
+	import {postFetch} from '@/util/request_UT.js'
 	export default {
 		data() {
 			return {
-				
+				phone:'',
+				password:'',
+				code:'',
+				id:'',
+				nextTime:0,
+				showPassword:false
 			};
 		},
+		onLoad(props){
+			this.id = props.id||''
+		},
 		methods:{
+			togglePassword(){
+				this.showPassword = !this.showPassword
+			},
 			regest(){
+				let _this=this
+				postFetch('index.php/index/login/regest',{phone:this.phone,password:this.password,checkNum:this.code,invitation_code:id},false,function(res){
+					
+				})
 				uni.navigateTo({
 					url:'/pages/download/download'
+				})
+			},
+			getCode(){
+				let _this=this
+				postFetch('index.php/index/login/sms',{phone:this.phone},false,function(res){
+					_this.nextTime=60;
+					let s = setInterval(function(){
+						if(!_this.nextTime){
+							clearInterval(s)
+						}else{
+							_this.nextTime--
+						}
+					},1000)
 				})
 			}
 		}
