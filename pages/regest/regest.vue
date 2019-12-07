@@ -24,7 +24,7 @@
 			</view>
 			<view class="dsc">
 				<image class="icon" src="/static/regestIcon2.png"></image>
-				<view class="text">我已阅读并同意<text>《用户协议》</text>与<text>《隐私政策》</text></view>
+				<view class="text">我已阅读并同意<text @click="go('/pages/agreement/agreement')">《用户协议》</text>与<text @click="go('/pages/policy/policy')">《隐私政策》</text></view>
 			</view>
 			<view class="regest" @click="regest">注册</view>
 		</view>
@@ -49,6 +49,11 @@
 			this.id = props.id||''
 		},
 		methods:{
+			go(url){
+				uni.navigateTo({
+					url
+				})
+			},
 			phoneCheck(){
 				if(!this.phone.length){
 					uni.showToast({

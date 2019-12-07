@@ -23,6 +23,22 @@
 				"navigationBarTitleText": "蜜蜂天堂"
 			}
         }
+        ,{
+            "path" : "pages/agreement/agreement",
+            "style": {
+            	"navigationBarTitleText": "用户协议",
+				"navigationBarTextStyle":"black",
+				"navigationBarBackgroundColor":"#fff"
+            }
+        }
+        ,{
+            "path" : "pages/policy/policy",
+            "style": {
+            	"navigationBarTitleText": "隐私政策",
+				"navigationBarTextStyle":"black",
+				"navigationBarBackgroundColor":"#fff"
+            }
+        }
     ],
     "subPackages": [],
     "globalStyle": {
