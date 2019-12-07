@@ -49,44 +49,104 @@
 			this.id = props.id||''
 		},
 		methods:{
+			phoneCheck(){
+				if(!this.phone.length){
+					uni.showToast({
+						title:'请输入手机号',
+						icon:'none'
+					})
+					return false;
+				}else if(!(/^1[3456789]\d{9}$/.test(this.phone))){
+								uni.showToast({
+								    title: '请输入正确的手机号',
+									icon:'none',
+								    duration: 1000
+								});
+							return false;
+						}else{
+							return true;
+						}
+			},
+			emailCheck(){
+				if(!this.email.length){
+					uni.showToast({
+						title:'请输入邮箱',
+						icon:'none'
+					})
+					return false;
+				}else if(!(/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(this.email))){
+								uni.showToast({
+								    title: '请输入正确的邮箱',
+									icon:'none',
+								    duration: 1000
+								});
+							return false;
+						}else{
+							return true;
+						}
+			},
+			passwordCheck(){
+				if(!this.password.length){
+					uni.showToast({
+						title:'请输入密码',
+						icon:'none'
+					})
+					return false;
+				}else{
+					return true;
+				}
+			},
+			codeCheck(){
+				if(!this.code.length){
+					uni.showToast({
+						title:'请输入验证码',
+						icon:'none'
+					})
+					return false;
+				}else{
+					return true;
+				}
+			},
 			togglePassword(){
 				this.showPassword = !this.showPassword
 			},
 			regest(){
 				let _this=this
-				console.log('click')
-				postFetch('index.php/index/login/register',{phone:this.phone,email:this.email,password:this.password,checkNum:this.code,invitation_code:this.id},false,function(res){
-					console.log('regestCallback',res)
-					if(res.data.token){
-						uni.showToast({
-							title:'注册成功',
-							icon:'none'
-						})
-						uni.navigateTo({
-							url:'/pages/download/download'
-						})
-					}else{
-						uni.showToast({
-							title:'注册错误',
-							icon:'none'
-						})
-					}
-					
-				})
-				
+				if(_this.phoneCheck()&&_this.emailCheck()&&_this.passwordCheck()&&_this.codeCheck()){
+					postFetch('index.php/index/login/register',{phone:_this.phone,email:_this.email,password:_this.password,checkNum:_this.code,invitation_code:_this.id},false,function(res){
+						console.log('regestCallback',res)
+						if(res.data.token){
+							uni.showToast({
+								title:'注册成功',
+								icon:'none'
+							})
+							uni.navigateTo({
+								url:'/pages/download/download'
+							})
+						}else{
+							uni.showToast({
+								title:'注册错误',
+								icon:'none'
+							})
+						}
+						
+					})
+				}
 			},
 			getCode(){
 				let _this=this
-				postFetch('index.php/index/login/sms',{phone:this.phone},false,function(res){
-					_this.nextTime=60;
-					let s = setInterval(function(){
-						if(!_this.nextTime){
-							clearInterval(s)
-						}else{
-							_this.nextTime--
-						}
-					},1000)
-				})
+				if(this.phoneCheck()){
+					postFetch('index.php/index/login/sms',{phone:_this.phone},false,function(res){
+						_this.nextTime=60;
+						let s = setInterval(function(){
+							if(!_this.nextTime){
+								clearInterval(s)
+							}else{
+								_this.nextTime--
+							}
+						},1000)
+					})
+				}
 			}
 		}
 	}
