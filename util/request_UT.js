@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import qs from 'qs'
-import {encrypt64} from './security_UT.js'
+import {encrypt64,MD5} from './security_UT.js'
 import {logTag,errorTag} from '@/util/log_UT.js'
 let config= require("@/common/config.js");
 let accessKey= "";
@@ -68,6 +68,8 @@ export const getFetch =  async (url,params = {},CDN,callback) => {
 
 export const postFetch =  async (url,params = {},CDN,callback) => {
 	var cacheKey = encrypt64(url + JSON.stringify(params))
+	var time = new Date().getTime()
+	var token = MD5('controller'+time)
 	// if(postCache[cacheKey] && ((new Date().getTime()) - postCache[cacheKey].time) < config.updateTime){
 	// 	logTag('发起请求',cacheKey)
 	// 	callback(postCache[cacheKey].data)
@@ -98,6 +100,8 @@ export const postFetch =  async (url,params = {},CDN,callback) => {
 	console.log(params)
   try{
 	 logTag('发起请求',cacheKey)
+	 params.time = time;
+	 params.tooken = token;
 	 const res = await uni.request({
 	 		url: d+url, //仅为示例，并非真实接口地址。
 	 		data: params,

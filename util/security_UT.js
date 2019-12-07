@@ -88,3 +88,6 @@ export const getInfo = () => {
 	console.log(token1)
 	return JSON.parse(token1)
 }
+export const MD5 = (data)=>{
+	return CryptoJS.MD5(data).toString()
+}

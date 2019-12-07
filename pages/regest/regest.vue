@@ -9,6 +9,9 @@
 					<input placeholder="请输入手机号" v-model="phone"/>
 				</view>
 				<view class="inputPoint">
+					<input placeholder="请输入邮箱" v-model="email"/>
+				</view>
+				<view class="inputPoint">
 					<input placeholder="请输入6-16位密码" v-model="password" :password="!showPassword"/>
 					<image class="icon" src="/static/regestIcon1.png" v-if="showPassword" @click="togglePassword"></image>
 					<image class="icon" src="/static/regestIcon0.png" v-else @click="togglePassword"></image>
@@ -34,6 +37,7 @@
 		data() {
 			return {
 				phone:'',
+				email:'',
 				password:'',
 				code:'',
 				id:'',
@@ -50,12 +54,26 @@
 			},
 			regest(){
 				let _this=this
-				postFetch('index.php/index/login/regest',{phone:this.phone,password:this.password,checkNum:this.code,invitation_code:id},false,function(res){
+				console.log('click')
+				postFetch('index.php/index/login/register',{phone:this.phone,email:this.email,password:this.password,checkNum:this.code,invitation_code:this.id},false,function(res){
+					console.log('regestCallback',res)
+					if(res.data.token){
+						uni.showToast({
+							title:'注册成功',
+							icon:'none'
+						})
+						uni.navigateTo({
+							url:'/pages/download/download'
+						})
+					}else{
+						uni.showToast({
+							title:'注册错误',
+							icon:'none'
+						})
+					}
 					
 				})
-				uni.navigateTo({
-					url:'/pages/download/download'
-				})
+				
 			},
 			getCode(){
 				let _this=this
@@ -85,7 +103,7 @@
 		}
 		.regestFrame{
 			position: absolute;
-			top:633rpx;
+			top:533rpx;
 			left:67rpx;
 			width:611rpx;
 			background-color: #fff;
