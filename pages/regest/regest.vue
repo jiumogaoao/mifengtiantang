@@ -120,7 +120,7 @@
 				if(_this.phoneCheck()&&_this.emailCheck()&&_this.passwordCheck()&&_this.codeCheck()){
 					postFetch('index.php/index/login/register',{phone:_this.phone,email:_this.email,password:_this.password,checkNum:_this.code,invitation_code:_this.id},false,function(res){
 						console.log('regestCallback',res)
-						if(res.data.status==500){
+						if(res.data.status==200){
 							uni.showToast({
 								title:'注册成功',
 								icon:'none'
@@ -142,6 +142,17 @@
 				let _this=this
 				if(this.phoneCheck()){
 					postFetch('index.php/index/login/sms',{phone:_this.phone},false,function(res){
+						if(res.data.status!=200){
+							uni.showToast({
+								title:res.data.msg,
+								icon:'none'
+							})
+						}else{
+							uni.showToast({
+								title:'发送成功',
+								icon:'none'
+							})
+						}
 						_this.nextTime=60;
 						let s = setInterval(function(){
 							if(!_this.nextTime){
