@@ -120,7 +120,7 @@
 				if(_this.phoneCheck()&&_this.emailCheck()&&_this.passwordCheck()&&_this.codeCheck()){
 					postFetch('index.php/index/login/register',{phone:_this.phone,email:_this.email,password:_this.password,checkNum:_this.code,invitation_code:_this.id},false,function(res){
 						console.log('regestCallback',res)
-						if(res.data.token){
+						if(res.data.status==500){
 							uni.showToast({
 								title:'注册成功',
 								icon:'none'
@@ -130,7 +130,7 @@
 							})
 						}else{
 							uni.showToast({
-								title:'注册错误',
+								title:res.data.msg,
 								icon:'none'
 							})
 						}

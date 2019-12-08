@@ -118,7 +118,7 @@ export const postFetch =  async (url,params = {},CDN,callback) => {
 	if(callback){callback(res[1])}
     return res;
   }catch(e){
-	errorTag(cacheKey+':请求错误',e)
+	console.log(cacheKey+':请求错误',e)
     return {
       code:-1,
       message:e.message,
