@@ -1,6 +1,6 @@
 module.exports = {
 	OSS:'https://nuskindevelop.oss-cn-shenzhen.aliyuncs.com/',
-	API: "http://api.paradisebee.com/",//api开头一段
+	API: "https://api.paradisebee.com/",//api开头一段
 	apiMockPath: "https://yapi.lhs11.com/mock/189/",//假数据api地址
 	apiMock: false, //是否使用后台假数据
 	apiPath:"",//api子路径
