@@ -97,6 +97,12 @@
 						icon:'none'
 					})
 					return false;
+				}else if(this.password.length < 6 || this.password.length>16){
+					uni.showToast({
+						title:'密码须6-16位',
+						icon:'none'
+					})
+					return false;
 				}else{
 					return true;
 				}
