@@ -38,16 +38,16 @@
 										<view class="frameM frameM1">
 											<image class="picS" src="/static/huojianICON@2x.png"></image>
 											<view class="titleM">蜜蜂天堂APP的诞生</view>
-											<view class="text">2019年3月项目策划团队筹建，2019年11月测试版APP上线，2017年8月正式版上线，我们将不断优化用户的购物体验，为大家创造额外的被动可持续收入，资产永续，不再是一个名词！而是拿得到的收益！</view>
+											<view class="text">2019年3月项目策划团队筹建，2019年11月测试版APP上线，2019年12月正式版上线，我们将不断优化用户的购物体验，为大家创造额外的被动可持续收入，资产永续，不再是一个名词！而是拿得到的收益！</view>
 										</view>
 										<view class="frameM frameM2">
 											<image class="picS" src="/static/huiyuanICON@2x.png"></image>
-											<view class="titleM">蜜蜂天堂APP的优势</view>
-											<view class="text">2019年3月项目策划团队筹建，2019年11月测试版APP上线，2017年8月正式版上线，我们将不断优化用户的购物体验，为大家创造额外的被动可持续收入，资产永续，不再是一个名词！而是拿得到的收益！</view>
+											<view class="titleM">蜜蜂天堂的优势</view>
+											<view class="text">蜜蜂天堂消费省钱、轻松赚钱、享受增值。查询电商平台所有优惠，每天多达上万种品类商品，让你每一分的消费都有所价值！ 解决传统积分的“散，乱，价值低”等问题，海量精美优质的积分兑换商品供你挑选！区块链云算力的增值服务为你资产保驾护航，助你实现资产永续！更多惊喜等你体验！ 创新思维 颠覆传统</view>
 										</view>
 										<view class="frameM frameM3">
 											<image class="picS" src="/static/jifengICON@2x.png"></image>
-											<view class="titleM">蜜蜂天堂APP的未来</view>
+											<view class="titleM">蜜蜂天堂的未来</view>
 											<view class="text">蜜蜂天堂以用户体验为重点，打造社交新零售生态系统，让实体店商家、消费者、线上店铺等，一起实现多方共赢，为大家创造价值，欢迎宝妈、微商，线上线下商家、淘客加入我们的大家庭！共创美好的明天！</view>
 										</view>
 									</view>
@@ -55,10 +55,10 @@
 										<view class="frameS">
 											<view class="left">
 												<view class="titleL">蜜蜂天堂注册流程</view>
-												<view class="text">花生日记通过邀请注册，扫码确定关系终身不变，比亲妈还亲。</view>
+												<view class="text">蜜蜂天堂通过邀请注册，扫码确定关系终身不变，比亲妈还亲。</view>
 												<view class="point">
 													<image class="picXS" src="/static/wangyeICON@2x.png"></image>
-													<view class="text">点击网页下载链接，下载注册花生日记，填写邀请码224422</view>
+													<view class="text">点击网页下载链接，下载注册蜜蜂天堂，填写邀请码224422</view>
 												</view>
 												<view class="point">
 													<image class="picXS" src="/static/bibianjiICON@2x.png"></image>
@@ -128,7 +128,7 @@
 									</view>
 									<view :class="{frameL:1,frame7:1,canShow:canShow(100+800+440+640+640+640+360+100)} ">
 										<view class="titleL">联系我们</view>
-										<view class="text">任何使用问题，团队建设问题，运营商如何加入问题，可以咨询我们客服微信：alibabashuyao QQ:254004468</view>
+										<view class="text">任何使用问题，团队建设问题，运营商如何加入问题，可以咨询我们客服微信：蜜蜂天堂APP商城</view>
 										<view class="frameS">
 					<!-- 						<view class="left">
 												<view class="list">
