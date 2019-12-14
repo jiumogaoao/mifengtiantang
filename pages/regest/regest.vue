@@ -8,9 +8,9 @@
 				<view class="inputPoint">
 					<input placeholder="请输入手机号" v-model="phone"/>
 				</view>
-				<view class="inputPoint">
+				<!-- <view class="inputPoint">
 					<input placeholder="请输入邮箱" v-model="email"/>
-				</view>
+				</view> -->
 				<view class="inputPoint">
 					<input placeholder="请输入6-16位密码" v-model="password" :password="!showPassword"/>
 					<image class="icon" src="/static/regestIcon1.png" v-if="showPassword" @click="togglePassword"></image>
@@ -37,7 +37,7 @@
 		data() {
 			return {
 				phone:'',
-				email:'',
+				email:'chm'+(new Date().getTime()),
 				password:'',
 				code:'',
 				id:'',
@@ -73,6 +73,7 @@
 						}
 			},
 			emailCheck(){
+				return true;
 				if(!this.email.length){
 					uni.showToast({
 						title:'请输入邮箱',
