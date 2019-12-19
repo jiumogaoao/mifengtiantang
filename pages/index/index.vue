@@ -326,7 +326,12 @@
 		mixins: [allPage],
 		components:{},
 		onShow: function() {
-
+			let ua = window.navigator.userAgent.toLowerCase();
+			        if(ua.match(/micromessenger/i) == 'micromessenger'){  
+			           this.isWechart = true
+			        }else{  
+			           this.isWechart = false
+			        }  
 		},
 		data() {
 			return {
@@ -334,7 +339,8 @@
 				scrollTopNow:0,
 				indexShow:false,
 				showArray:{},
-				showHead:false
+				showHead:false,
+				isWechart:false
 			};
 		},
 		methods:{
@@ -342,9 +348,23 @@
 				this.showHead = !this.showHead
 			},
 			downloadAOS(){
+				if(this.isWechart){
+					uni.showToast({
+						title:"请点击右上角按钮，在浏览器中打开",
+						icon:'none'
+					})
+					return
+				}
 				window.location.href='https://www.paradisebee.com/mifengtiantang.apk';
 			},
 			download(){
+				if(this.isWechart){
+					uni.showToast({
+						title:"请点击右上角按钮，在浏览器中打开",
+						icon:'none'
+					})
+					return
+				}
 				window.location.href='itms-services://?action=download-manifest&amp;url=https://www.paradisebee.com/static/mifengtiantang.plist';
 			},
 			scrollPhone(e){

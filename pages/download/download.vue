@@ -3,8 +3,8 @@
 		<image class="bg" src="/static/shareBG.png"></image>
 		<view class="regestFrame">
 			<view class="title">- 注册成功 -</view>
-			<image class="button" src="/static/successDownload0.png"></image>
-			<image class="button" src="/static/successDownload1.png" @click="download"></image>
+			<image class="button" src="/static/successDownload0.png" @click="downloadAOS"></image>
+			<image class="button" src="/static/successDownload1.png" @click="downloadIOS"></image>
 		</view>
 	</view>
 </template>
@@ -13,11 +13,36 @@
 	export default {
 		data() {
 			return {
-				
+				isWechart:false
 			};
 		},
+		onShow(){
+			let ua = window.navigator.userAgent.toLowerCase();  
+			        if(ua.match(/micromessenger/i) == 'micromessenger'){  
+			           this.isWechart = true
+			        }else{  
+			           this.isWechart = false
+			        }  
+		},
 		methods:{
-			download(){
+			downloadAOS(){
+				if(this.isWechart){
+					uni.showToast({
+						title:"请点击右上角按钮，在浏览器中打开",
+						icon:'none'
+					})
+					return
+				}
+				window.location.href='https://www.paradisebee.com/mifengtiantang.apk';
+			},
+			downloadIOS(){
+				if(this.isWechart){
+					uni.showToast({
+						title:"请点击右上角按钮，在浏览器中打开",
+						icon:'none'
+					})
+					return
+				}
 				window.location.href='itms-services://?action=download-manifest&amp;url=https://www.paradisebee.com/static/mifengtiantang.plist';
 			}
 		}
