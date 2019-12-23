@@ -2,6 +2,14 @@
 	import {postFetch,setToken} from "@/util/request_UT.js"
     export default {
         onLaunch: function() {
+			let _this=this
+			let ua = window.navigator.userAgent.toLowerCase();
+			        if(ua.match(/micromessenger/i) == 'micromessenger'){  
+						_this.dispatch('rootST/wx')
+			           // uni.redirectTo({
+			           // 	url: '/pages/out/out'
+			           // });
+			        }
 			if(this.$store.state.rootST.access_token){
 				setToken({
 					access_expired:this.$store.state.rootST.access_expired,

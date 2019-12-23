@@ -1,5 +1,6 @@
 <template>
 	<view :class="phone?'phone':'destop'">
+		<view style="position: fixed;top:0;left:0;right:0;bottom:0;background-color: #fff;z-index:999999;" v-if="isWX">暂不支持微信访问，请点击右上角按钮，从外部浏览器打开</view>
 		<block  v-if="!phone">
 		<view class="content" :style="{width:w+'px',height:h+'px',transform:'scale3d('+s+','+s+',1)'}">
 			<view class="head">
@@ -279,9 +280,9 @@
 										<view class="text">高速下载通道下载请点击</view>
 										<view class="buttonFrame">
 											<view class="button" style="background-color: #EC5298;" @click="downloadAOS">
-												<image class="icon" src="/static/ANZHUO@2x.png"></image><view class="text">安卓 GOOGLE PLAY</view>
+												<image class="icon" src="/static/ANZHUO@2x.png"></image><view class="text">Android下载</view>
 											</view>
-											<view class="button" style="background-color: #FBB03B;" @click="download"><image class="icon" src="/static/IOS@2x.png"></image><view class="text">苹果 APP STORE</view></view>
+											<view class="button" style="background-color: #FBB03B;" @click="download"><image class="icon" src="/static/IOS@2x.png"></image><view class="text">iPhone下载</view></view>
 										</view>
 									</view>
 									<view :class="{frameL:1,frame7:1,canShow:canShowPhone(8818)} ">
@@ -325,13 +326,11 @@
 	export default {
 		mixins: [allPage],
 		components:{},
+		onLoad(){
+			 
+		},
 		onShow: function() {
-			let ua = window.navigator.userAgent.toLowerCase();
-			        if(ua.match(/micromessenger/i) == 'micromessenger'){  
-			           this.isWechart = true
-			        }else{  
-			           this.isWechart = false
-			        }  
+			
 		},
 		data() {
 			return {
@@ -365,7 +364,7 @@
 					})
 					return
 				}
-				window.location.href='itms-services://?action=download-manifest&amp;url=https://www.paradisebee.com/static/mifengtiantang.plist';
+				window.location.href='https://apps.apple.com/cn/app/%E8%9C%9C%E8%9C%82%E5%A4%A9%E5%A0%82/id1492021582';
 			},
 			scrollPhone(e){
 				this.scrollTopNow = e.target.scrollTop/this.rpx
@@ -421,6 +420,9 @@
 			}
 		},
 		computed:{
+			isWX(){
+				return this.$store.state.rootST.isWX
+			},
 			phone:function(){
 				let res = uni.getSystemInfoSync();
 				console.log(res)

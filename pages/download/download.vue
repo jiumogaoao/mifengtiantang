@@ -1,5 +1,6 @@
 <template>
 	<view class="page">
+		<view style="position: fixed;top:0;left:0;right:0;bottom:0;background-color: #fff;z-index:999999;" v-if="isWX">暂不支持微信访问，请点击右上角按钮，从外部浏览器打开</view>
 		<image class="bg" src="/static/shareBG.png"></image>
 		<view class="regestFrame">
 			<view class="title">- 注册成功 -</view>
@@ -17,34 +18,20 @@
 			};
 		},
 		onShow(){
-			let ua = window.navigator.userAgent.toLowerCase();  
-			        if(ua.match(/micromessenger/i) == 'micromessenger'){  
-			           this.isWechart = true
-			        }else{  
-			           this.isWechart = false
-			        }  
+
 		},
 		methods:{
 			downloadAOS(){
-				if(this.isWechart){
-					uni.showToast({
-						title:"请点击右上角按钮，在浏览器中打开",
-						icon:'none'
-					})
-					return
-				}
 				window.location.href='https://www.paradisebee.com/mifengtiantang.apk';
 			},
 			downloadIOS(){
-				if(this.isWechart){
-					uni.showToast({
-						title:"请点击右上角按钮，在浏览器中打开",
-						icon:'none'
-					})
-					return
-				}
-				window.location.href='itms-services://?action=download-manifest&amp;url=https://www.paradisebee.com/static/mifengtiantang.plist';
+				window.location.href='https://apps.apple.com/cn/app/%E8%9C%9C%E8%9C%82%E5%A4%A9%E5%A0%82/id1492021582';
 			}
+		},
+		computed:{
+			isWX(){
+				return this.$store.state.rootST.isWX
+			},
 		}
 	}
 </script>

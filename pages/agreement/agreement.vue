@@ -1,5 +1,6 @@
 <template>
 	<view class="frame">
+		<view style="position: fixed;top:0;left:0;right:0;bottom:0;background-color: #fff;z-index:999999;" v-if="isWX">暂不支持微信访问，请点击右上角按钮，从外部浏览器打开</view>
 		<view class="p">用户协议</view>
 		
 		
@@ -161,6 +162,11 @@
 			return {
 				
 			};
+		},
+		computed:{
+			isWX(){
+				return this.$store.state.rootST.isWX
+			},
 		}
 	}
 </script>

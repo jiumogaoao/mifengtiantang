@@ -5,6 +5,7 @@ export default {
   state: {
 	  initReady:false,
 	  destop:false,
+	  isWX:false
   },
   mutations: {
 	  clear(state, data){
@@ -16,6 +17,9 @@ export default {
 	  },
 	  destop(state, data){
 		  state.destop = true;
+	  },
+	  wx(state, data){
+		  state.isWX = true;
 	  }
   },
   actions:{
@@ -27,6 +31,9 @@ export default {
 	  },
 	  destop(context,data){
 		  context.commit("destop");
+	  },
+	  wx(context,data){
+		  context.commit("wx");
 	  }
   }
  }

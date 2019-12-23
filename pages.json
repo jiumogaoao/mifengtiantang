@@ -39,6 +39,13 @@
 				"navigationBarBackgroundColor":"#fff"
             }
         }
+        ,{
+            "path" : "pages/out/out",
+            "style" : {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "蜜蜂天堂"
+			}
+        }
     ],
     "subPackages": [],
     "globalStyle": {

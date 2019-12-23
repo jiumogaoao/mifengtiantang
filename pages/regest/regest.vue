@@ -1,5 +1,6 @@
 <template>
 	<view class="page">
+		<view style="position: fixed;top:0;left:0;right:0;bottom:0;background-color: #fff;z-index:999999;" v-if="isWX">暂不支持微信访问，请点击右上角按钮，从外部浏览器打开</view>
 		<image class="bg" src="/static/shareBG.png"></image>
 		<view class="regestFrame">
 			<view class="title">手机注册</view>
@@ -12,7 +13,7 @@
 					<input placeholder="请输入邮箱" v-model="email"/>
 				</view> -->
 				<view class="inputPoint">
-					<input placeholder="请输入6-16位密码" v-model="password" :password="!showPassword"/>
+					<input placeholder="请输入5~10位大小写英文或数字" v-model="password" :password="!showPassword"/>
 					<image class="icon" src="/static/regestIcon1.png" v-if="showPassword" @click="togglePassword"></image>
 					<image class="icon" src="/static/regestIcon0.png" v-else @click="togglePassword"></image>
 				</view>
@@ -44,6 +45,11 @@
 				nextTime:0,
 				showPassword:false
 			};
+		},
+		computed:{
+			isWX(){
+				return this.$store.state.rootST.isWX
+			}
 		},
 		onLoad(props){
 			this.id = props.id||''
@@ -98,9 +104,15 @@
 						icon:'none'
 					})
 					return false;
-				}else if(this.password.length < 6 || this.password.length>16){
+				}else if(this.password.length < 5 || this.password.length>10){
 					uni.showToast({
-						title:'密码须6-16位',
+						title:'密码须5-10位大小写字母或数字',
+						icon:'none'
+					})
+					return false;
+				}else if(!(/^[a-zA-Z\d]+$/.test(this.password))){
+					uni.showToast({
+						title:'密码须5-10位大小写字母或数字',
 						icon:'none'
 					})
 					return false;
